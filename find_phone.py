@@ -30,5 +30,5 @@ if __name__ == '__main__':
     model_path = model.find_last()
     model.load_weights(model_path, by_name=True)
 
-    prediction = model.detect([original_image], verbose=0)[0]
+    prediction = model.detect([img], verbose=0)[0]
     print(prediction)

@@ -30,13 +30,11 @@ def load_image(file_path, config):
 if __name__ == '__main__':
     file_path = sys.argv[1]
     inference_config = InferenceConfig()
-    print(f"\n\n\n{inference_config}\n\n\n")
     img = load_image(file_path,config=inference_config)
-
-       
+           
     model = modellib.MaskRCNN(mode="inference", config=inference_config, model_dir=constants.MODEL_DIR)
     model_path = model.find_last()
     model.load_weights(model_path, by_name=True)
 
     obj_x , obj_y = predict(model.detect([img], verbose=0)[0])
-    print(f"objec at:({obj_x},{obj_y})")
+    print(f"{obj_x} {obj_y}")

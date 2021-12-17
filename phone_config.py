@@ -35,3 +35,8 @@ class PhoneConfig(Config):
 
     # use small validation steps since the epoch is small
     VALIDATION_STEPS = 5
+
+class InferenceConfig(PhoneConfig):
+    GPU_COUNT = 1
+    IMAGES_PER_GPU = 1
+    DETECTION_MIN_CONFIDENCE = constants.DETECTION_MIN_CONFIDENCE

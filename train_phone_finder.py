@@ -22,7 +22,7 @@ import mrcnn.model as modellib
 COCO_MODEL_PATH = os.path.join(constants.PRETRAINED_MODEL_PATH,"mask_rcnn_coco.h5")
 
 def load_model(config):
-    model = modellib.MaskRCNN(mode="training", config=config,model_dir=constants.MODEL_DIR)
+    model = modellib.MaskRCNN(mode="training", config=config, model_dir=constants.MODEL_DIR)
     model.load_weights(COCO_MODEL_PATH, by_name=True, exclude=["mrcnn_class_logits", "mrcnn_bbox_fc", "mrcnn_bbox", "mrcnn_mask"])
     return model
 

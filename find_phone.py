@@ -39,3 +39,4 @@ if __name__ == '__main__':
     model.load_weights(model_path, by_name=True)
 
     obj_x , obj_y = predict(model.detect([img], verbose=0)[0])
+    print(f"objec at:({obj_x},{obj_y})")

@@ -8,6 +8,14 @@ from phone_config import InferenceConfig
 from dataset import get_dataset
 import constants
 
+def returnCenterPoint(bbox):
+    center_x = bbox[0] + (bbox[2] - bbox[0])/2
+    center_y = bbox[1] + (bbox[3] - bbox[1])/2
+    return center_x/512, (center_y-85)/340.63
+
+def predict(r):
+    y1,x1,y2,x2 = r['rois'][0]
+    return returnCenterPoint([x1,y1,x2,y2])
 
 def load_image(file_path, config):
     image = cv2.imread(file_path)
@@ -30,5 +38,4 @@ if __name__ == '__main__':
     model_path = model.find_last()
     model.load_weights(model_path, by_name=True)
 
-    prediction = model.detect([img], verbose=0)[0]
-    print(prediction)
+    obj_x , obj_y = predict(model.detect([img], verbose=0)[0])

@@ -1,5 +1,5 @@
 PRETRAINED_MODEL_PATH = 'pretrained_models'
-MODEL_DIR = "models"
+MODEL_DIR = "model"
 
 CONFIG_NAME = "FIND_PHONE_CONFIG"
 LABELS_FILE = "labels.txt"

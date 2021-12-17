@@ -1,0 +1,19 @@
+name: find_phone_rcnn
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - jupyterlab
+  - pip
+  - pip:
+    - tensorflow==1.13.1
+    - keras==2.0.8
+    - h5py==2.10.0
+    - scikit-image==0.14.2
+    - pandas
+    - sklearn
+    - matplotlib
+    - MakeTreeDir
+    - numpy
+    - opencv-python
+    - 'git+https://github.com/matterport/Mask_RCNN.git'
